@@ -1,0 +1,182 @@
+<div
+  class="container PostConteiner"
+  *ngFor="
+    let Post of Posts | searchFilter : [searchText, myProfile];
+    index as j
+  "
+>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div
+                class="profile-photo-circle"
+                style="background-image:url('{{
+                  getPostProfilePhotoFromIndex(j)
+                }}') ;"
+              ></div>
+            </div>
+            <div class="col-md-10">
+              <span class="username"
+                >{{ Post.personInfo.first }} {{ Post.personInfo.last }}</span
+              >
+              <i>{{ Post.DateOfCreated | date : "M/d/yy, h:mm a" }}</i>
+              <p class="post">
+                {{ Post.Paragraph }}
+              </p>
+              <img
+                *ngIf="ishaveImage(j)"
+                src="{{ getImage(Post.imgLink) }}"
+                alt="Post Image"
+                class="post-image img-fluid"
+              />
+              <div class="row mt-3">
+                <div class="col-md-6 d-flex align-items-center">
+                  <button
+                    *ngIf="!getMyLike(j)"
+                    class="btn btn-link btn-like"
+                    (click)="makeLike(j)"
+                  >
+                    <i class="bi bi-suit-heart"></i>
+                  </button>
+
+                  <button
+                    *ngIf="getMyLike(j)"
+                    class="btn btn-link btn-like"
+                    (click)="disLike(j)"
+                  >
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </button>
+                  <span class="like-counter"
+                    ><i class="far fa-thumbs-up"></i>
+                    {{ Post.likesCount }}</span
+                  >
+                </div>
+
+                <div
+                  class="col-md-6 d-flex align-items-center justify-content-end"
+                >
+                  <button
+                    class="btn btn-link btn-comment"
+                    (click)="ChangeCommentAdd(j)"
+                  >
+                    <i class="bi bi-chat-right"></i>
+                  </button>
+                  <span class="comment-counter"
+                    ><i class="far fa-comment"></i>
+                    {{ Post.coummentCount }}</span
+                  >
+                </div>
+              </div>
+              <hr />
+              <div class="comment-section">
+                <div class="comment">
+                  <div *ngIf="Post.coummentCount > 0">
+                    <div class="comment-header">
+                      <div
+                        class="profile-photo-circle-comment"
+                        style="background-image: url({{
+                          getlastCommnetProfilePhoto(j)
+                        }});"
+                      ></div>
+
+                      <span class="username">
+                        {{ Posts[j].lastComment.personInfo.first }}
+                        {{ Posts[j].lastComment.personInfo.last }}
+                      </span>
+                      <span class="Date">
+                        {{
+                          Posts[j].lastComment.CommentDate
+                            | date : "M/d/yy, h:mm a"
+                        }}
+                      </span>
+                    </div>
+                    <div class="comment-text"></div>
+                    <div class="comment-footer">
+                      <span class="like-counter"
+                        ><i class="far fa-thumbs-up"></i>
+                        {{ Posts[j].lastComment.commentContent }}</span
+                      >
+                    </div>
+                  </div>
+
+                  <div *ngIf="Posts[j].showMore">
+                    <div
+                      class="comment"
+                      *ngFor="let Comment of Post.comments; index as i"
+                    >
+                      <div *ngIf="i > 0">
+                        <div class="comment-header">
+                          <div
+                            class="profile-photo-circle-comment"
+                            style="background-image: url({{
+                              getCommentsProfilePhoto(j, i)
+                            }});"
+                          ></div>
+                          <span class="username">
+                            {{ Posts[j].comments[i].personInfo.first }}
+                            {{ Posts[j].comments[i].personInfo.last }}
+                          </span>
+
+                          <span class="Date">
+                            {{
+                              Posts[j].comments[i].CommentDate
+                                | date : "M/d/yy, h:mm a"
+                            }}
+                          </span>
+                        </div>
+                        <div class="comment-text"></div>
+                        <div class="comment-footer">
+                          <span class="like-counter"
+                            ><i class="far fa-thumbs-up"></i>
+                            {{ Posts[j].comments[i].commentContent }}</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="getCommentAdd(j)">
+                    <div class="form-group">
+                      <label for="comment-text">Add a comment:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="comment-text"
+                        name="comment-text"
+                        [(ngModel)]="Comment"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      [disabled]="Comment == ''"
+                      class="btn btn-primary"
+                      (click)="onClickAddCoumment(Posts[j].postId, j)"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="Post.coummentCount > 1">
+                  <a
+                    *ngIf="!Posts[j].showMore"
+                    (click)="showMoreComment(j)"
+                    class="show-more-link"
+                    >Show more comments</a
+                  >
+                  <a
+                    *ngIf="Posts[j].showMore"
+                    (click)="Posts[j].showMore = false"
+                    class="show-more-link"
+                    >Show only first comment</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="input-group">
+        <input
+          type="text"
+          id="search-bar"
+          [(ngModel)]="SearchValue"
+          (change)="onClickChange()"
+          placeholder="Search for Account , Post "
+        />
+        <div class="input-group-append">
+          <!-- <button
+            class="btn btn-outline-success"
+            type="submit"
+            (click)="onClickChange()"
+          >
+            Search
+          </button> -->
+        </div>
+      </div>
+
+      <!-- <a (click)="onClickChange()"
+        ><img
+          class="search-icon"
+          src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+      /></a> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+.profile-photo-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  margin-right: 8px;
+}
+.profile-photo-circle-comment {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.PostConteiner {
+  margin-top: 20px;
+  /* box-shadow: 16px 20px 20px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.post {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.post-image {
+  margin-top: 16px;
+}
+
+.btn-like,
+.btn-comment {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.like-counter,
+.comment-counter {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.comment-section {
+  margin-top: 16px;
+}
+
+.comment {
+  margin-bottom: 16px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+.comment-text {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.comment-footer {
+  margin-top: 8px;
+}
+
+.show-more-link {
+  margin-top: 8px;
+  display: block;
+}
+.SearchBar {
+  margin: 50px;
+}
+.d-flex[_ngcontent-serverApp-c117] {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: flex-start;
+  align-items: stretch;
+}
