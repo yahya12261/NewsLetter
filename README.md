@@ -8,7 +8,7 @@ To set up the database for the NewsLetter app, follow these steps:
 
 1. Open an Apache server and MySQL.
 2. Create your database.
-3. Add the `NewsLetterDB.sql` file to the SQL field to create the necessary tables.
+3. Add the `{yourDistLink}/NewsLetter/Databae/NewsLetterDB.sql` file to the SQL field to create the necessary tables.
 
 ## Configuration Setup
 
