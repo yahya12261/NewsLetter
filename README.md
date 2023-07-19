@@ -35,5 +35,3 @@ To set up the Angular app, follow these steps:
 3. Change the `BaseLink` in `{yourDistLink}/NewsLetter/AngularApp/src/environments/environment.ts` to match your Node server's base link (e.g., `http://localhost:8000/`).
 4. Run `ng serve -o` to start the app.
 5. Enjoy using the NewsLetter app!
-
-Please note that you may encounter grammar and formatting issues in this guide. If you have any questions or need further assistance, please feel free to ask.
