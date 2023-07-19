@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Profile</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-3 col-xs-3">
+        <div class="profile-preview">
+          <div
+            class="profile-photo-circle position-relative"
+            style="background-image: url({{ getProfilePhoto() }});"
+          >
+            <div class="edit-icon position-absolute bottom-0 end-0">
+              <input
+                type="file"
+                id="fileInput"
+                name="fileInput"
+                style="height: 0px; overflow: hidden; width: 0px"
+                (change)="onChangeProfile($event)"
+              />
+
+              <button class="btn btn-link">
+                <i class="bi bi-pencil-fill" onclick="fileInput.click();"> </i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h4
+          class="profile-name"
+          style="display: inline-block; white-space: nowrap"
+        >
+          {{ person.first }} {{ person.middle }} {{ person.last }}
+        </h4>
+      </div>
+      <div class="col-lg-6 col-md-8 col-sm-9 col-xs-9">
+        <a
+          class="btn btn-primary btnChangePassword"
+          (click)="onPasswordChange()"
+          >Change Password <i class="bi bi-lock"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-post></app-post>
+  </div>
+</div>

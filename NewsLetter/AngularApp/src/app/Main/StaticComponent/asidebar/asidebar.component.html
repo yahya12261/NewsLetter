@@ -1,0 +1,48 @@
+<div class="container-fluid Aside">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block sidebar">
+      <div class="sidebar-sticky">
+        <div class="profile-header text-center">
+          <div
+            class="profile-photo-circle-Header"
+            style="background-image:url('{{ getProfile() }}') ;"
+          ></div>
+          <span
+            class="Header-username"
+            style="color: aliceblue; font-weight: bold"
+            >{{ getName() }}</span
+          >
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/Main/home']"
+              routerLinkActive="active"
+            >
+              <i class="bi bi-house-door-fill"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/Main/Profile']"
+              routerLinkActive="active"
+            >
+              <i class="bi bi-person-lines-fill"></i> Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/Main/AddPost']"
+              routerLinkActive="active"
+            >
+              <i class="bi bi-file-earmark-post"></i> Add Post
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
