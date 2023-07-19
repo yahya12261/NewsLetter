@@ -1,4 +1,3 @@
-Here's a corrected version of the instructions with proper grammar and formatting:
 
 # NewsLetter App Setup Guide
 
