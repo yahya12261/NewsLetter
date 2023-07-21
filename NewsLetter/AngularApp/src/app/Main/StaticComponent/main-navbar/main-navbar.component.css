@@ -1,0 +1,21 @@
+.Header-Profile {
+  margin-top: 20px;
+}
+.profile-photo-circle-Header {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/3135/3135715.png");
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.Header-username {
+  color: dimgrey;
+}
+.d-flex {
+  display: flex !important;
+  flex-direction: row-reverse;
+}
